@@ -1,0 +1,122 @@
+@mixin avatar-size() {
+    width: 35px;
+    height: 35px;
+}
+
+$main-color: #0036aa;
+$secondary-color: #6574da;
+
+.about-user__ {
+    &container {
+        display: inline-flex;
+        flex-direction: column;
+        margin: 30px;
+    }
+
+    &box {
+        display: flex;
+        align-items: center;
+        background-color: #000;
+        font-size: 18px;
+        font-weight: 500;
+        color: #fff;
+        white-space: nowrap;
+
+        &_avatar {
+            padding: 16px 13px;
+            background-color: #7B61FF;
+            border-radius: 10px;
+            width: 56px;
+            height: 56px;
+            font-size: 20px;
+            line-height: 24px;
+            font-weight: 700;
+        }
+
+        &_text {
+            padding-left: 20px;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 600;
+        }
+
+        &_arrow {
+            cursor: pointer;
+            margin-left: 114px;
+            width: 24px;
+            height: 24px;
+
+            img {
+                width: 100%;
+                height: 100%;
+                transform: rotateZ(90deg);
+            }
+        }
+    }
+
+    &menu {
+        display: flex;
+        flex-direction: column;
+        width: 267px;
+        background-color: #242426;
+        border-radius: 10px;
+
+        &_edit,
+        &_logout {
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            line-height: 24px;
+            padding: 16px 0 16px 20px;
+            transition: .2s;
+
+            &:hover {
+                color: #7B61FF;
+            }
+        }
+    }
+
+
+}
+
+.no-user__ {
+    &container {
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &box {
+        &_avatar {
+            padding: 16px;
+            background-color: #7B61FF;
+            border-radius: 10px;
+            width: 56px;
+            height: 56px;
+        }
+
+        &_arrow {
+            cursor: pointer;
+            margin-left: 114px;
+            width: 24px;
+            height: 24px;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
+
+.dividing-h_line {
+    width: 100%;
+    height: 1px;
+    background-color: #323537;
+}

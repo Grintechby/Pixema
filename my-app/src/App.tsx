@@ -1,11 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Input from './components/Input/Input';
+
+
+
 
 function App() {
   return (
     <>
-    
+
+      {/* <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<AboutUser />} />
+    </Routes>
+    </BrowserRouter> */}
     </>
   );
 }

@@ -1,0 +1,39 @@
+.card__ {
+    &container {
+        background-color: black;
+        max-width: 266px;
+        line-height: 24px;
+        color: #fff;
+
+        &_img {
+            height: 357px;
+            position: relative;
+        }
+
+        &_rating {
+            background-color: #00A340;
+            border-radius: 6px;
+            position: absolute;
+            font-weight: 600;
+            padding: 2px 8px;
+            top: 20px;
+            left: 20px;
+        }
+
+        &_title {
+            cursor: pointer;
+            font-weight: 700;
+            padding-top: 24px;
+            transition: .2s;
+
+            &:hover {
+                color: #7B61FF;
+            }
+
+        }
+
+        &_description {
+            color: #AFB2B6;
+        }
+    }
+}
