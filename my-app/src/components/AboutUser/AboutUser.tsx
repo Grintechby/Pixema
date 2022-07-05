@@ -1,22 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './AboutUser.scss';
+import cn from 'classnames';
 
 const AboutUser = () => {
-    if (false) {
+    const [openMenu, setOpenMenu] = useState(false);
+
+    if (true) {
         return (
             <div className='about-user__container'>
                 <div className="about-user__box">
                     <div className="about-user__box_avatar">UN</div>
                     <span className="about-user__box_text">User name</span>
-                    <div className="about-user__box_arrow">
-                        <img src="/icons/arrow.svg" alt="" />
+                    <div className="about-user__box_arrow" onClick={()=> setOpenMenu(!openMenu)}>
                     </div>
                 </div>
-                <div className="about-user__menu">
-                    <Link to='/' className='about-user__menu_edit'>Edit profile</Link>
+                <div className={cn("about-user__menu", !openMenu && 'hidden')}>
+                    <a href='#' className={cn('about-user__menu_edit', !openMenu && 'hidden')}>Edit profile</a>
                     <div className="dividing-h_line"></div>
-                    <Link to='/' className='about-user__menu_logout' >Log Out</Link>
+                    <a href='#' className='about-user__menu_logout'>Log Out</a>
                 </div>
             </div>
         )

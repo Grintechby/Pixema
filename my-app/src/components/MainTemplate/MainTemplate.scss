@@ -1,0 +1,22 @@
+.template__ {
+
+    &container {
+        background-color: black;
+        display: flex;
+        justify-content: flex-start;
+        gap: 60px;
+        padding: 40px 62px 64px 62px;
+    }
+
+    &main {
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+        padding-bottom: 64px;
+    }
+}
+
+.sidebar__logo {
+    cursor: pointer;
+    margin-top: 8px;
+}

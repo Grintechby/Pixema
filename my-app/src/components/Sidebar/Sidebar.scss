@@ -1,0 +1,10 @@
+.sidebar__ {
+
+    &container {
+        max-width: 308px;
+        margin-top: 64px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+}

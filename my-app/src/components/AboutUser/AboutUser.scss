@@ -1,16 +1,8 @@
-@mixin avatar-size() {
-    width: 35px;
-    height: 35px;
-}
-
-$main-color: #0036aa;
-$secondary-color: #6574da;
-
 .about-user__ {
     &container {
         display: inline-flex;
         flex-direction: column;
-        margin: 30px;
+        position: relative;
     }
 
     &box {
@@ -41,25 +33,31 @@ $secondary-color: #6574da;
         }
 
         &_arrow {
+            background: url('../../../public/icons/arrow.svg') center no-repeat;
+            transform: rotateZ(90deg);
             cursor: pointer;
             margin-left: 114px;
             width: 24px;
             height: 24px;
+            transition: .2s;
 
-            img {
-                width: 100%;
-                height: 100%;
-                transform: rotateZ(90deg);
+            &:hover {
+                background: url('../../../public/icons/arrow_hover.svg') center no-repeat;
             }
+
         }
     }
 
     &menu {
+        position: absolute;
+        z-index: 1;
         display: flex;
         flex-direction: column;
         width: 267px;
         background-color: #242426;
         border-radius: 10px;
+        top: 80px;
+        transition: .3s;
 
         &_edit,
         &_logout {
@@ -119,4 +117,8 @@ $secondary-color: #6574da;
     width: 100%;
     height: 1px;
     background-color: #323537;
+}
+
+.hidden {
+    display: none;
 }

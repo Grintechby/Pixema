@@ -1,10 +1,10 @@
 .search__ {
     &container {
-        margin: 50px;
+        max-width: 1184px;
+        flex-grow: 1;
     }
 
     &input {
-        max-width: 1184px;
         height: 56px;
         font-size: 16px;
         position: relative;
