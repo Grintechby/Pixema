@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import CardsList from './components/CardsList/CardsList';
-import MainTemplate from './components/MainTemplate/MainTemplate';
+import ButtonPrimary from './components/Buttons/ButtonPrimary/ButtonPrimary';
+import ButtonSecondary from './components/Buttons/ButtonSecondary/ButtonSecondary';
+import Filters from './components/Filters/Filters';
+
 
 
 function App() {
   return (
     <>
-      <MainTemplate>
-        <CardsList />
-      </MainTemplate>
+    <Filters />
       {/* <BrowserRouter>
     <Routes>
       <Route path='/' element={<AboutUser />} />

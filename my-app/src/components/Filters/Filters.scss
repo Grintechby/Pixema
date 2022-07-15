@@ -1,0 +1,55 @@
+.filters__ {
+    &container {
+        background-color: #242426;
+        color: #fff;
+        max-width: 518px;
+        padding: 48px 40px;
+        border-radius: 10px;
+
+        p {
+            line-height: 24px;
+            font-weight: 600;
+            padding-bottom: 8px;
+        }
+
+        &_close {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            h2 {
+                line-height: 36px;
+                font-weight: 600;
+            }
+        }
+
+        .sort_by {
+            padding: 48px 0 32px 0;
+            border-bottom: 1px solid #323537;
+        }
+
+        .movie_name {
+            padding: 32px 0 24px 0;
+        }
+
+        .from-to__filter {
+            padding-bottom: 24px;
+
+            &_years, &_rating {
+                display: flex;
+                justify-content: space-between;
+                gap: 40px;
+
+                input {
+                    max-width: 199px;
+                }
+            }
+        }
+        .show-clr__btns {
+            padding-top: 110px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+}

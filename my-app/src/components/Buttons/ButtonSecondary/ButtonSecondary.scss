@@ -1,0 +1,20 @@
+.second-btn {
+    background-color: #323537;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    width: 200px;
+    height: 56px;
+    transition: .2s;
+
+    &:hover {
+        color: #AFB2B6;
+    }
+
+    &:disabled {
+        background-color: #80858B;
+        color: #AFB2B6;
+    }
+}

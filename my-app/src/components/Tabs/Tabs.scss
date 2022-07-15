@@ -1,0 +1,38 @@
+.tabs__ {
+    &container {
+        display: inline-flex;
+
+        .left {
+            border-radius: 10px 0 0 10px;
+            border-right: 0;
+        }
+
+        .right {
+            border-radius: 0 10px 10px 0;
+            border-left: 0;
+        }
+    }
+
+
+    &button {
+        border: 2px solid #323537;;
+        background-color: #242426;
+        font-size: 16px;
+        width: 217px;
+        height: 52px;
+        color: #80858B;
+        outline:none;
+        transition: .2s;
+
+        &:hover {
+            color: #fff;
+        }
+
+        &:disabled {
+            background-color: #323537;
+            color: #fff;
+        }
+
+    }
+}
+

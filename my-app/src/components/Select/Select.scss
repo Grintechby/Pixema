@@ -1,0 +1,78 @@
+.select__ {
+    &container {
+        font-size: 16px;
+        line-height: 24px;
+        position: relative;
+    }
+
+    &toggle {
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 438px;
+        height: 56px;
+        border-radius: 10px;
+        border: none;
+        background-color: #323537;
+        color: #80858B;
+        padding: 0 20px;
+        
+
+        &::after {
+            content: '';
+            width: 25px;
+            height: 25px;
+            background: url('../../../public/icons/arrow.svg') no-repeat center;
+            background-size: cover;
+            transform: rotateZ(90deg);
+            transition: .2s;
+        }
+
+        &:hover {
+            &::after {
+                background: url('../../../public/icons/arrow_hover.svg') no-repeat center;
+                background-size: cover;
+            }
+        }
+
+        &:focus {
+            outline: 2px solid #7B61FF;
+        }
+    }
+
+    &options {
+        position: absolute;
+        top: 66px;
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+        width: 438px;
+        list-style-type: none;
+        z-index: 9999;
+
+        &_option {
+            background-color: #323537;
+            padding: 16px 0;
+            color: #fff;
+            padding-left: 20px;
+            transition: .2s;
+
+            &:hover {
+                color: #7B61FF;
+            }
+            
+            &:first-child {
+                border-radius: 10px 10px 0 0;
+            }
+            
+            &:last-child {
+                border-radius: 0 0 10px 10px;
+            }
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}
