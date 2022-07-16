@@ -1,0 +1,79 @@
+.sign-in__ {
+    &container {
+        background: url('../../../public/images/sign_background.png') no-repeat center;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        color: #fff;
+        position: relative;
+    }
+
+    &logo {
+        padding: 48px 0 0 62px;
+    }
+
+    &box {
+        display: inline-flex;
+        flex-direction: column;
+        background-color: #242426;
+        border-radius: 10px;
+        padding: 40px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        gap: 40px;
+
+        h2 {
+            font-weight: 600;
+            line-height: 36px;
+        }
+
+        p {
+            font-weight: 600;
+            line-height: 24px;
+            padding-bottom: 8px;
+        }
+
+        &_inputs {
+            width: 494px;
+
+            .inputs__pass {
+                padding: 24px 0 8px 0;
+            }
+
+            .reset-pass {
+                cursor: pointer;
+                font-size: 14px;
+                line-height: 24px;
+                color: #80858B;
+                transition: .2s;
+
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+
+        .prim-btn {
+            width: auto;
+        }
+
+        .sign-up {
+            font-weight: 500;
+            color: #80858B;
+            text-align: center;
+
+            a {
+                text-decoration: none;
+                color: #7B61FF;
+                transition: .2s;
+
+                &:hover {
+                    color: #917CFF;
+                }
+            }
+        }
+
+    }
+}
