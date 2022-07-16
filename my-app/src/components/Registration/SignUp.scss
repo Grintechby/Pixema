@@ -1,4 +1,4 @@
-.sign-in__ {
+.sign-up__ {
     &container {
         background: url('../../../public/images/sign_background.png') repeat-y center;
         background-color: #000;
@@ -43,25 +43,23 @@
         p {
             font-weight: 600;
             line-height: 24px;
-            padding-bottom: 8px;
         }
 
         &_inputs {
             width: 494px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
 
-            .inputs__pass {
-                padding: 24px 0 8px 0;
-            }
+            .inputs__ {
 
-            .reset-pass {
-                cursor: pointer;
-                font-size: 14px;
-                line-height: 24px;
-                color: #80858B;
-                transition: .2s;
-
-                &:hover {
-                    color: #fff;
+                &name,
+                &email,
+                &pass,
+                &confirm-pass {
+                    p {
+                        padding-bottom: 8px;
+                    }
                 }
             }
         }
@@ -70,7 +68,7 @@
             width: auto;
         }
 
-        .sign-up {
+        .sign-in {
             font-weight: 500;
             color: #80858B;
             text-align: center;
@@ -85,6 +83,5 @@
                 }
             }
         }
-
     }
 }
