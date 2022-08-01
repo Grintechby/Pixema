@@ -1,0 +1,42 @@
+.new-pass__ {
+    &box {
+        z-index: 10;
+        display: inline-flex;
+        flex-direction: column;
+        background-color: #242426;
+        border-radius: 10px;
+        padding: 40px;
+        margin: 170px 40px 40px 40px;
+        gap: 40px;
+
+        h2 {
+            font-weight: 600;
+            line-height: 36px;
+        }
+
+        p {
+            font-weight: 600;
+            line-height: 24px;
+        }
+
+        &_inputs {
+            width: 494px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+
+            .inputs__ {
+                &pass,
+                &confirm-pass {
+                    p {
+                        padding-bottom: 8px;
+                    }
+                }
+            }
+        }
+
+        .prim-btn {
+            width: auto;
+        }
+    }
+}

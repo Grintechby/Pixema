@@ -1,14 +1,13 @@
 import React from 'react';
-import ButtonPrimary from '../Buttons/ButtonPrimary/ButtonPrimary';
-import Input from '../Input/Input';
+import ButtonPrimary from '../../Buttons/ButtonPrimary/ButtonPrimary';
+import Input from '../../Input/Input';
+import AuthTemplate from '../AuthTemplate/AuthTemplate';
+
 import './SignUp.scss';
 
 const SignUp = () => {
     return (
-        <div className='sign-up__container'>
-            <div className="sign-up__logo">
-                <img src="images/logo-dark.png" alt="" />
-            </div>
+        <AuthTemplate>
             <div className="sign-up__box">
                 <h2>Sign Up</h2>
                 <div className="sign-up__box_inputs">
@@ -32,7 +31,7 @@ const SignUp = () => {
                 <ButtonPrimary />
                 <p className='sign-in'>Already have an account? <a href="">Sign In</a></p>
             </div>
-        </div>
+        </AuthTemplate>
     )
 }
 

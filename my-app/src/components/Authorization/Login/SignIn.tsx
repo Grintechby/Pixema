@@ -1,17 +1,16 @@
 import React from 'react';
-import ButtonPrimary from '../Buttons/ButtonPrimary/ButtonPrimary';
-import Input from '../Input/Input';
+import ButtonPrimary from '../../Buttons/ButtonPrimary/ButtonPrimary';
+import Input from '../../Input/Input';
+import AuthTemplate from '../AuthTemplate/AuthTemplate';
+
 import './SignIn.scss';
 
 const SignIn = () => {
     return (
-        <div className='sign-in__container'>
-            <div className="sign-in__logo">
-                <img src="images/logo-dark.png" alt="" />
-            </div>
-            <div className="sign-in__box">
+        <AuthTemplate>
+            <div className="sign-in__box" >
                 <h2>Sign In</h2>
-                <div className="sign-in__box_inputs">
+                <form className="sign-in__box_inputs">
                     <div className="inputs__email">
                         <p>Email</p>
                         <Input />
@@ -21,11 +20,11 @@ const SignIn = () => {
                         <Input />
                     </div>
                     <span className='reset-pass'>Forgot password?</span>
-                </div> 
+                </form>
                 <ButtonPrimary />
                 <p className='sign-up'>Don't have an account? <a href="">Sign Up</a></p>
             </div>
-        </div>
+        </AuthTemplate>
     )
 }
 
