@@ -12,10 +12,10 @@ const ResetPass = () => {
         <div className="reset-pass__box_inputs">
           <div className="inputs__email">
             <p>Email</p>
-            <Input />
+            <Input placeholder='Your Email' />
           </div>
         </div>
-        <ButtonPrimary />
+        <ButtonPrimary buttonName='Reset' />
       </div>
     </AuthTemplate>
   )

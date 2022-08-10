@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ButtonPrimary from '../../Buttons/ButtonPrimary/ButtonPrimary';
 import Input from '../../Input/Input';
 import AuthTemplate from '../AuthTemplate/AuthTemplate';
@@ -13,16 +14,16 @@ const SignIn = () => {
                 <form className="sign-in__box_inputs">
                     <div className="inputs__email">
                         <p>Email</p>
-                        <Input />
+                        <Input placeholder='Your Email' />
                     </div>
                     <div className="inputs__pass">
                         <p>Password</p>
-                        <Input />
+                        <Input placeholder='Your Password' />
                     </div>
-                    <span className='reset-pass'>Forgot password?</span>
+                    <span className='reset-pass'><Link to='/reset-pass'>Forgot password?</Link></span>
                 </form>
-                <ButtonPrimary />
-                <p className='sign-up'>Don't have an account? <a href="">Sign Up</a></p>
+                <ButtonPrimary buttonName='Sign In' />
+                <p className='sign-up'>Don't have an account? <Link to='/registration'>Sign Up</Link></p>
             </div>
         </AuthTemplate>
     )

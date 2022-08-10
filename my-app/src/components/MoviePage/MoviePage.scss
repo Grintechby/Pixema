@@ -1,0 +1,92 @@
+.movie-page__ {
+    &container {
+        display: flex;
+        color: #fff;
+
+        &_img-box {}
+
+        &_content-box {
+            padding-left: 40px;
+            line-height: 24px;
+
+            .content-box__ {
+                &genres {
+                    color: #AFB2B6;
+                    display: flex;
+                    gap: 25px;
+
+                    li:first-child {
+                        list-style-type: none;
+                    }
+                }
+
+                &title {
+                    font-size: 40px;
+                    line-height: 60px;
+                    font-weight: 600;
+                }
+
+                &ratings {
+                    display: flex;
+                    gap: 20px;
+                    line-height: 25px;
+                    padding-top: 26px;
+                    .rating_ {
+                        &pixema {
+                            background-color: #00A340;
+                            border-radius: 6px;
+                            font-weight: 600;
+                            padding: 2px 8px;
+                        }
+
+                        &imdb {
+                            background-color: #323537;
+                            border-radius: 6px;
+                            display: flex;
+                            gap: 10px;
+                            align-items: center;
+                            padding: 2px 8px;
+                        }
+                    }
+
+                    .movie-duration {
+                        background-color: #323537;
+                        border-radius: 6px;
+                        padding: 2px 8px;
+                    }
+                }
+
+                &description {
+                    padding-top: 40px;
+                }
+
+                &main-info {
+                    table {
+                        text-align: left;
+                        padding-top: 20px;
+                    }
+                    th {
+                        color: #AFB2B6;
+                        padding-top: 20px;
+                        font-weight: 600;
+                    }
+                    td {
+                        padding-left: 55px;
+                        padding-top: 20px;
+                    }
+                }
+
+                &recommend {
+                    padding-top: 55px;
+
+                    h2 {
+                        line-height: 36px;
+                        font-weight: 600;
+                    }
+
+                    
+                }
+            }
+        }
+    }
+}

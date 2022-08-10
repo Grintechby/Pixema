@@ -21,19 +21,31 @@
         }
 
         &_title {
-            cursor: pointer;
-            font-weight: 700;
             padding-top: 24px;
-            transition: .2s;
+            a {
+                cursor: pointer;
+                color: #fff;
+                font-weight: 700;
+                padding-top: 24px;
+                text-decoration: none;
+                transition: .2s;
 
-            &:hover {
-                color: #7B61FF;
+                &:hover {
+                    color: #7B61FF;
+                }
             }
-
         }
 
         &_description {
+            display: flex;
+            gap: 25px;
             color: #AFB2B6;
+
+            li {
+                &:first-child {
+                    list-style-type: none;
+                }
+            }
         }
     }
 }

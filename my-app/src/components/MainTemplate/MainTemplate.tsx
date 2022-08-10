@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CardsList from '../CardsList/CardsList';
 import Header from '../Header/Header';
 import { useActions } from '../hooks/useActions';
@@ -12,17 +13,12 @@ interface IMainTemplate {
 
 const MainTemplate = ({ children }: IMainTemplate) => {
 
-  const dispatch = useActions();
   const theme = useTypedSelector(store => store.theme.isDarkTheme)
-
-  const changeTheme = () => {
-    dispatch()
-  }
 
   return (
     <div style={{ backgroundColor: theme ? 'white' : 'black' }} className='template__container'>
       <div className="template__aside">
-        <div onClick={changeTheme} className="sidebar__logo"><img src="images/logo-dark.png" alt="" /></div>
+        <div className="sidebar__logo"><Link to='/'><img src="/images/logo-dark.png" alt="" /></Link></div>
         <Sidebar />
       </div>
       <div className="template__main">

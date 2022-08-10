@@ -1,15 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { ICard } from '../../types/ICard';
 import './Card.scss';
 
-const Card = () => {
+
+const Card = ({id, img, genres, pixemaRating, title}:ICard) => {
     return (
-        <div className="card__container">
+        <div id={'card_' + {id}} className="card__container">
             <div className="card__container_img">
-                <div className="card__container_rating">7.6</div>
-                <img src="images/poster.png" alt="" />
+                <div className="card__container_rating">{pixemaRating}</div>
+                <img src={img} alt="" />
             </div>
-            <div className="card__container_title">Wonder Woman: 1984</div>
-            <div className="card__container_description">Adventure &#8226; Action &#8226; Fantasy</div>
+            <div className="card__container_title"><Link to={'/movies/movie_' + id}>{title}</Link></div>
+            <ul className="card__container_description">
+                {genres.map(genre => <li>{genre}</li>)}
+            </ul>
         </div>
     )
 }

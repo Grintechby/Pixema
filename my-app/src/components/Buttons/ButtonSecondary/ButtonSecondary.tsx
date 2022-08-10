@@ -1,9 +1,10 @@
 import React from 'react';
+import { IButton } from '../../../types/IButtons';
 import './ButtonSecondary.scss';
 
-const ButtonSecondary = () => {
+const ButtonSecondary = ({buttonName}: IButton) => {
   return (
-    <button className='second-btn'>Secondary</button>
+    <button className='second-btn'>{buttonName}</button>
   )
 }
 

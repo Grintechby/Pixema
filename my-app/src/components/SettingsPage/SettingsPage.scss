@@ -1,0 +1,85 @@
+.settings {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: #fff;
+
+    h2 {
+        font-weight: 600;
+        line-height: 36px;
+    }
+
+    h4 {
+        line-height: 24px;
+        font-weight: 600;
+        padding-bottom: 8px;
+    }
+}
+
+.profile__ {
+
+
+    &box {
+        margin-top: 16px;
+        background-color: #242426;
+        border-radius: 10px;
+        display: flex;
+        gap: 40px;
+        padding: 40px;
+        width: 70%;
+
+        &_name,
+        &_email {
+            width: 100%;
+        }
+    }
+}
+
+.pass__ {
+
+    &box {
+        margin-top: 16px;
+        background-color: #242426;
+        border-radius: 10px;
+        display: flex;
+        gap: 40px;
+        padding: 40px;
+        width: 70%;
+
+        &_current-pass,
+        &_new-pass {
+            width: 100%;
+
+            .confirm-pass {
+                padding-top: 24px;
+            }
+        }
+    }
+}
+
+.color-mode__ {
+
+    &box {
+        margin-top: 16px;
+        background-color: #242426;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+        padding: 40px;
+        width: 70%;
+
+        .theme-description {
+            color: #AFB2B6;
+            line-height: 24px;
+        }
+    }
+}
+
+.settings__bttns {
+    display: flex;
+    gap: 40px;
+    justify-content: flex-end;
+    width: 70%;
+}

@@ -1,5 +1,20 @@
 .filters__ {
+    &background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        // min-height: 100vh;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.605);
+    }
+
     &container {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
         background-color: #242426;
         color: #fff;
         max-width: 518px;
@@ -20,6 +35,10 @@
             h2 {
                 line-height: 36px;
                 font-weight: 600;
+            }
+
+            .close_btn {
+                cursor: pointer;
             }
         }
 

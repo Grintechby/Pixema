@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './AuthTemplate.scss';
 
 interface IAuthTemp {
@@ -9,7 +10,7 @@ const AuthTemplate = (props:IAuthTemp) => {
     return (
         <div className='auth-temp__container'>
             <div className="auth-temp__logo">
-                <img src="images/logo-dark.png" alt="" />
+                <Link to='/'><img src="images/logo-dark.png" alt="" /></Link>
             </div>
             {props.children}
         </div>

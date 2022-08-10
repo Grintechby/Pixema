@@ -54,14 +54,17 @@
             }
 
             .reset-pass {
-                cursor: pointer;
-                font-size: 14px;
-                line-height: 24px;
-                color: #80858B;
-                transition: .2s;
+                a {
+                    cursor: pointer;
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: #80858B;
+                    text-decoration: none;
+                    transition: .2s;
 
-                &:hover {
-                    color: #fff;
+                    &:hover {
+                        color: #fff;
+                    }
                 }
             }
         }

@@ -59,8 +59,7 @@
         top: 80px;
         transition: .3s;
 
-        &_edit,
-        &_logout {
+        a {
             text-decoration: none;
             color: #fff;
             font-size: 16px;
@@ -83,6 +82,7 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        position: relative;
 
         img {
             width: 100%;
@@ -100,15 +100,18 @@
         }
 
         &_arrow {
+            background: url('../../../public/icons/arrow.svg') center no-repeat;
+            transform: rotateZ(90deg);
             cursor: pointer;
             margin-left: 114px;
             width: 24px;
             height: 24px;
+            transition: .2s;
 
-            img {
-                width: 100%;
-                height: 100%;
+            &:hover {
+                background: url('../../../public/icons/arrow_hover.svg') center no-repeat;
             }
+
         }
     }
 }

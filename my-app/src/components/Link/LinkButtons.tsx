@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './LinkButtons.scss';
 
 export const HomeLink = () => {
   return (
     <div className='link-btn__container'>
       <div className="link-btn__img_home"></div>
-      <a href="#">Home</a>
+      <NavLink to='/'>Home</NavLink>
+      {/* <a href="#">Home</a> */}
     </div>
   )
 }
@@ -32,7 +34,8 @@ export const SettingLink = () => {
   return (
     <div className='link-btn__container'>
       <div className="link-btn__img_set"></div>
-      <a href="#">Settings</a>
+      <Link to='/settings'>Settings</Link>
+      {/* <a href="#">Settings</a> */}
     </div>
   )
 }

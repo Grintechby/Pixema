@@ -1,10 +1,14 @@
 import React from 'react';
 import './Input.scss';
 
-const Input = () => {
+interface inputProps {
+    placeholder: string;
+}
+
+const Input = ({ placeholder }: inputProps) => {
     return (
         <div className='input__container'>
-            <input type="text" id='text' placeholder='Placeholder' />
+            <input type="text" id='text' placeholder={placeholder} />
         </div>
 
     )

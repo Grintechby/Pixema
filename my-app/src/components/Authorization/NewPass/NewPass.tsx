@@ -12,14 +12,14 @@ const NewPass = () => {
                 <div className="new-pass__box_inputs">
                     <div className="inputs__pass">
                         <p>Password</p>
-                        <Input />
+                        <Input placeholder='Your Password' />
                     </div>
                     <div className="inputs__confirm-pass">
                         <p>Confirm password</p>
-                        <Input />
+                        <Input placeholder='Confirm your Password' />
                     </div>
                 </div>
-                <ButtonPrimary />
+                <ButtonPrimary buttonName='Set Password' />
             </div>
         </AuthTemplate>
     )

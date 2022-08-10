@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import { ITabs } from '../../types/ITabs';
+
 import './Tabs.scss';
-const Tabs = () => {
+
+
+const Tabs = ({ firstTab, secondTab }: ITabs) => {
   const [isSelect, setIsSelect] = useState(false)
 
-  function handleClick () {
+  function handleClick() {
     setIsSelect(!isSelect);
   }
+
   return (
     <div className='tabs__container'>
-        <button onClick={handleClick} disabled={!isSelect} className='tabs__button left'>Text 1</button>
-        <button onClick={handleClick} disabled={isSelect} className='tabs__button right'>Text 2</button>
+      <button onClick={handleClick} disabled={!isSelect} className='tabs__button left'>{firstTab}</button>
+      <button onClick={handleClick} disabled={isSelect} className='tabs__button right'>{secondTab}</button>
     </div>
   )
 }
