@@ -7,68 +7,148 @@ import { IMoviePage } from '../../types/IMoviePage';
 import { ISelectedCard } from '../../types/ISelectedCard';
 import RecommendBox, { IRecommendBox } from './RecommendBox/RecommendBox';
 import { ICardList } from '../../types/ICardsList';
+import { useGetMovieByIdQuery } from '../../api/api';
+import { useParams } from 'react-router-dom';
+import { IMovieGenre } from '../../types/IMovie';
+import { convertTimeStampToDate } from '../helpers/convertTimeStampToDate';
+import { convertNumbers } from '../helpers/convertNumbers';
+import { iteratorSymbol } from 'immer/dist/internal';
 
 
-const MoviePage = ({ item: { id, img, actors, boxOffice, country, description, director, duration, genres, iMDb, pixemaRating, production, released, title, writers, year } }: ISelectedCard) => {
+const MoviePage = () => {
+
+    const params = useParams();
+    const { data, isLoading } = useGetMovieByIdQuery(params.id);
+    const {
+        name,
+        rating,
+        similarMovies,
+        id,
+        fees,
+        genres,
+        budget,
+        movieLength,
+        countries,
+        description,
+        persons,
+        premiere,
+        poster,
+        year,
+        productionCompanies,
+    } = { ...data };
+
+
+    const person = (value: any) => {
+        return persons?.filter((item: any) =>
+            item.enProfession === value ? item.name : undefined
+        );
+    };
+
     return (
         <MainTemplate>
             <div id={'movie_' + id} className='movie-page__container'>
                 <div className="movie-page__container_img-box">
-                    <img src={img} alt="" />
+                    <img src={poster?.url} alt="" />
                 </div>
                 <div className="movie-page__container_content-box">
                     <ul className="content-box__genres">
-                        {genres.map(genre => <li>{genre}</li>)}
+                        {genres?.map((genre: IMovieGenre) => <li key={'key_' + genre.name}>{genre.name}</li>)}
                     </ul>
-                    <h1 className="content-box__title">{title}</h1>
+                    <h1 className="content-box__title">{name}</h1>
                     <div className="content-box__ratings">
-                        <div className="rating_pixema">{pixemaRating}</div>
+                        <div className="rating_pixema">{rating?.kp}</div>
                         <div className="rating_imdb">
                             <img src="/icons/imdb_logo.svg" alt="" />
-                            <span>{iMDb}</span>
+                            <span>{rating?.imdb}</span>
                         </div>
-                        <div className="movie-duration">{duration}</div>
+                        <div className="movie-duration">{movieLength} min</div>
                     </div>
                     <div className="content-box__description">{description}</div>
                     <div className="content-box__main-info">
                         <table>
                             <tr>
-                                <th>Year</th>
-                                <td>{year}</td>
+                                <th>Год</th>
+                                <td>{year && year}</td>
                             </tr>
                             <tr>
-                                <th>Released</th>
-                                <td>{released}</td>
+                                <th>Дата премьеры</th>
+                                <td>{premiere?.world && convertTimeStampToDate(premiere?.world, 'DD MM YYYY')}</td>
                             </tr>
                             <tr>
-                                <th>BoxOffice</th>
-                                <td>{boxOffice}</td>
+                                <th>Сборы в мире</th>
+                                <td>{fees?.world.value && `${fees?.world.currency} ${convertNumbers(fees?.world.value)}`}</td>
                             </tr>
                             <tr>
-                                <th>Country</th>
-                                <td>{country.map(country => country)}</td>
+                                <th>Страны</th>
+                                <td>
+                                    {countries && countries?.map((country, index) => {
+                                        if (index === 0) {
+                                            return <span>{country.name}</span>
+                                        }
+                                        if (index < 3) {
+                                            return <span>, {country.name}</span>
+                                        }
+                                    })}
+                                </td>
                             </tr>
                             <tr>
-                                <th>Production</th>
-                                <td>{production.map(prod => prod)}</td>
+                                <th>Производство</th>
+                                <td>
+                                    {productionCompanies && productionCompanies?.map((company, index) => {
+                                        if (index === 0) {
+                                            return <span key={company.name}>{company.name}</span>
+                                        }
+                                        if (index < 3) {
+                                            return <span key={company.name}>, {company.name}</span>
+                                        }
+                                    })}
+                                </td>
                             </tr>
                             <tr>
-                                <th>Actors</th>
-                                <td>{actors.map(actor => actor)}</td>
+                                <th>Актеры</th>
+                                <td>
+                                    {person('actor')?.map((actor, index) => {
+                                        if (index === 0) {
+                                            return <span key={actor.name}>{actor.name}</span>
+                                        }
+                                        if (index < 3) {
+                                            return <span key={actor.name}>, {actor.name}</span>
+                                        }
+                                    }
+                                    )}
+                                </td>
                             </tr>
                             <tr>
-                                <th>Director</th>
-                                <td>{director}</td>
+                                <th>Режиссер</th>
+                                <td>
+                                    {person('director')?.map((director, index) => {
+                                        if (index === 0) {
+                                            return <span key={director.name}>{director.name}</span>
+                                        }
+                                        if (index < 3) {
+                                            return <span key={director.name}>, {director.name}</span>
+                                        }
+                                    })}
+                                </td>
                             </tr>
                             <tr>
-                                <th>Writers</th>
-                                <td>{writers.map(writer => writer)}</td>
+                                <th>Автор сценария</th>
+                                <td>
+                                    {person('writer')?.map((writer, index) => {
+                                        if (index === 0) {
+                                            return <span key={writer.name}>{writer.name}</span>
+                                        }
+                                        if (index < 3) {
+                                            return <span key={writer.name}>, {writer.name}</span>
+                                        }
+                                    })}
+                                </td>
                             </tr>
                         </table>
                     </div>
                     <div className="content-box__recommend">
-                        <h2>Recommendations</h2>
-                        <RecommendBox cardsList={data} currentId={id} />
+                        <h2>Рекомендуем посмотреть :</h2>
+                        <RecommendBox movies={similarMovies} rating={rating?.kp} />
                     </div>
                 </div>
             </div>

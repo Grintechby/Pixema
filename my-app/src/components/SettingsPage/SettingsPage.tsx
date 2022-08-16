@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './SettingsPage.scss'
 import Input from '../Input/Input';
 import MainTemplate from '../MainTemplate/MainTemplate';
@@ -6,13 +6,21 @@ import Switch from '../Switch/Switch';
 import ButtonSecondary from '../Buttons/ButtonSecondary/ButtonSecondary';
 import ButtonPrimary from '../Buttons/ButtonPrimary/ButtonPrimary';
 import { useActions } from '../hooks/useActions';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import { setTheme } from '../../store/reducers/theme';
 
 const SettingsPage = () => {
 
+    const theme = useTypedSelector(store => store.theme.theme)
+
     const dispatch = useActions();
 
+    useEffect(() => {
+        localStorage.setItem("theme", theme);
+      }, [theme]);
+
     const changeTheme = () => {
-        dispatch()
+        dispatch(setTheme(theme === 'dark' ? 'light' : 'dark' ))
     }
 
     return (
@@ -60,7 +68,7 @@ const SettingsPage = () => {
                                 <h4>Dark</h4>
                                 <p className='theme-description'>Use dark theme</p>
                             </div>
-                            <Switch changeTheme={changeTheme} />
+                            <Switch theme={theme} changeTheme={changeTheme} />
                         </div>
                     </div>
 

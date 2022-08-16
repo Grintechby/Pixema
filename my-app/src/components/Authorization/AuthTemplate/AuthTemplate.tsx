@@ -10,7 +10,7 @@ const AuthTemplate = (props:IAuthTemp) => {
     return (
         <div className='auth-temp__container'>
             <div className="auth-temp__logo">
-                <Link to='/'><img src="images/logo-dark.png" alt="" /></Link>
+                <Link to='/'><img src="/images/logo-dark.png" alt="" /></Link>
             </div>
             {props.children}
         </div>

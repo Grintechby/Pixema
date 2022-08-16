@@ -2,7 +2,7 @@ import React from "react";
 import { IMoviePage } from "../types/IMoviePage";
 import { ISelectedMoviePage } from "../types/ISelectedMoviePage";
 
-export const data = [
+ export const data = [
     {
         id: 1,
         img: '/images/poster.png',

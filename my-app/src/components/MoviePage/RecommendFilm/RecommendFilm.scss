@@ -1,0 +1,28 @@
+.recommend-film__ {
+    &container {
+        max-width: 266px;
+        line-height: 24px;
+
+        img {
+            width: 266px;
+            height: 357px;
+            border-radius: 20px;
+        }
+
+        &_title {
+            padding-top: 24px;
+
+            a {
+                cursor: pointer;
+                color: #fff;
+                font-weight: 700;
+                text-decoration: none;
+                transition: .2s;
+
+                &:hover {
+                    color: #7B61FF;
+                }
+            }
+        }
+    }
+}

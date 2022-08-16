@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './AboutUser.scss';
 import cn from 'classnames';
+import { ITheme } from '../../types/ILinks';
 
-const AboutUser = () => {
+const AboutUser = ({theme}: ITheme) => {
     const [openMenu, setOpenMenu] = useState(false);
 
     if (true) {
         return (
             <div className='about-user__container'>
-                <div className="about-user__box">
+                <div style={{ backgroundColor: theme === 'light' ? '#f0f0f0' : 'black' }} className="about-user__box">
                     <div className="about-user__box_avatar">UN</div>
                     <span className="about-user__box_text">User name</span>
                     <div className="about-user__box_arrow" onClick={() => setOpenMenu(!openMenu)}></div>
@@ -25,7 +26,7 @@ const AboutUser = () => {
         )
     }
     return (
-        <div className='no-user__container' onClick={() => setOpenMenu(!openMenu)}>
+        <div style={{ backgroundColor: theme ? '#f0f0f0' : 'black' }} className='no-user__container' onClick={() => setOpenMenu(!openMenu)}>
             <div className="about-user__box">
                 <div className="no-user__box_avatar"><img src="icons/user.svg" alt="" /></div>
                 <span className="about-user__box_text">Sign In</span>

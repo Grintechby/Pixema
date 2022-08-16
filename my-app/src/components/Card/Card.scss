@@ -7,7 +7,14 @@
 
         &_img {
             height: 357px;
+            width: 266px;
             position: relative;
+
+            img {
+                height: 357px;
+                width: 266px;
+                border-radius: 20px;
+            }
         }
 
         &_rating {
@@ -40,6 +47,7 @@
             display: flex;
             gap: 25px;
             color: #AFB2B6;
+            
 
             li {
                 &:first-child {

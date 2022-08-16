@@ -3,7 +3,16 @@
         display: flex;
         color: #fff;
 
-        &_img-box {}
+        &_img-box {
+            height: 357px;
+            width: 266px;
+
+            img {
+                height: 357px;
+                width: 266px;
+                border-radius: 20px;
+            }
+        }
 
         &_content-box {
             padding-left: 40px;
@@ -31,6 +40,7 @@
                     gap: 20px;
                     line-height: 25px;
                     padding-top: 26px;
+
                     .rating_ {
                         &pixema {
                             background-color: #00A340;
@@ -61,15 +71,34 @@
                 }
 
                 &main-info {
+                    .main-info {
+                        display: flex;
+                        gap: 55px;
+
+                        &_title {
+                            color: #AFB2B6;
+                            // padding-top: 20px;
+                            font-weight: 600;
+                        }
+
+                        &_value {
+                            display: flex;
+                            flex-wrap: wrap;
+                        }
+                    }
+
+
                     table {
                         text-align: left;
                         padding-top: 20px;
                     }
+
                     th {
                         color: #AFB2B6;
                         padding-top: 20px;
                         font-weight: 600;
                     }
+
                     td {
                         padding-left: 55px;
                         padding-top: 20px;
@@ -84,7 +113,7 @@
                         font-weight: 600;
                     }
 
-                    
+
                 }
             }
         }

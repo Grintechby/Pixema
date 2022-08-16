@@ -20,7 +20,7 @@ const Filters = ({ isOpen, closeFilters }: IFilters) => {
 
                 <div className="filters__container_close">
                     <h2>Filters</h2>
-                    <div onClick={closeFilters} className="close_btn"><img src="icons/close.svg" alt="" /></div>
+                    <div onClick={closeFilters} className="close_btn"><img src="/icons/close.svg" alt="" /></div>
                 </div>
 
                 <div className="sort_by">

@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
+import { useGetMovieByIdQuery } from './api/api';
 import './App.css';
 import AboutUser from './components/AboutUser/AboutUser';
 import SignIn from './components/Authorization/Login/SignIn';
@@ -20,16 +21,20 @@ import { data } from './data/data';
 
 
 function App() {
+  const params = useParams();
+  const {data, isLoading} = useGetMovieByIdQuery(params.id);
   return (
     <>
       <Routes>
-        <Route path='/' element={<HomePage cards={data} />} />
+        <Route path='/' element={<HomePage type={1} />} />
         <Route path='settings' element={<SettingsPage />} />
         <Route path='login' element={<SignIn />} />
         <Route path='registration' element={<SignUp />} />
         <Route path='reset-pass' element={<ResetPass />} />
         <Route path='new-pass' element={<NewPass />} />
-        <Route path='movies/*' element={<SelectedMoviePage movieArr={data} />} />
+        <Route path='movie/'>
+          <Route path=':id' element={<MoviePage />} />
+        </Route>
       </Routes>
     </>
   );

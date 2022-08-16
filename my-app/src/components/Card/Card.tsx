@@ -1,19 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ICard } from '../../types/ICard';
+import { IMovie, IMovieGenre } from '../../types/IMovie';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 import './Card.scss';
 
 
-const Card = ({id, img, genres, pixemaRating, title}:ICard) => {
+const Card = ({ card }: ICard) => {
+    const theme = useTypedSelector(store => store.theme.theme)
+
     return (
-        <div id={'card_' + {id}} className="card__container">
+        <div style={{ backgroundColor: theme === 'light' ? '#f0f0f0' : 'black' }} id={'card_' + card.id} className="card__container">
             <div className="card__container_img">
-                <div className="card__container_rating">{pixemaRating}</div>
-                <img src={img} alt="" />
+                <div className="card__container_rating">{card.rating?.kp}</div>
+                <img src={card.poster?.url} alt="" />
             </div>
-            <div className="card__container_title"><Link to={'/movies/movie_' + id}>{title}</Link></div>
+            <div className="card__container_title">
+                <Link to={`/movie/${card.id}`}>{card.name}</Link>
+            </div>
             <ul className="card__container_description">
-                {genres.map(genre => <li>{genre}</li>)}
+                {
+                    card.genres?.map((genre: IMovieGenre, index) => {
+                        if (index < 3) {
+                            return <li key={'key_' + genre.name}>{genre.name}</li>
+                        }
+
+                    })
+                }
             </ul>
         </div>
     )

@@ -1,5 +1,5 @@
 export interface ThemeState {
-    isDarkTheme: boolean;
+    theme: string;
 }
 
 export interface ThemeAction {

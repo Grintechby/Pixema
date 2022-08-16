@@ -1,5 +1,8 @@
-.recommend-box {
-    display: flex;
-    gap: 40px;
-    padding-top: 40px;
+.recommend-box__ {
+    &container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 35px;
+        padding-top: 40px;
+    }
 }
