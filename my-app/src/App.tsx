@@ -22,7 +22,6 @@ import { data } from './data/data';
 
 function App() {
   const params = useParams();
-  const {data, isLoading} = useGetMovieByIdQuery(params.id);
   return (
     <>
       <Routes>

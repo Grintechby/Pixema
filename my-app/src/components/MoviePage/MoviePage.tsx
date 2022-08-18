@@ -2,17 +2,15 @@ import React from 'react';
 import Card from '../Card/Card';
 import MainTemplate from '../MainTemplate/MainTemplate';
 import './MoviePage.scss';
-import { data } from '../../data/data';
 import { IMoviePage } from '../../types/IMoviePage';
 import { ISelectedCard } from '../../types/ISelectedCard';
-import RecommendBox, { IRecommendBox } from './RecommendBox/RecommendBox';
+import RecommendBox from './RecommendBox/RecommendBox';
 import { ICardList } from '../../types/ICardsList';
 import { useGetMovieByIdQuery } from '../../api/api';
 import { useParams } from 'react-router-dom';
 import { IMovieGenre } from '../../types/IMovie';
 import { convertTimeStampToDate } from '../helpers/convertTimeStampToDate';
 import { convertNumbers } from '../helpers/convertNumbers';
-import { iteratorSymbol } from 'immer/dist/internal';
 
 
 const MoviePage = () => {

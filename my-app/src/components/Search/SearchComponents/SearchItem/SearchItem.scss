@@ -1,0 +1,49 @@
+.search-item__ {
+    &container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: #fff;
+        text-decoration: none;
+        padding: 15px;
+        transition: .2s;
+
+        &:first-child {
+            border-radius: 10px 10px 0 0 ;
+        }
+        &:last-child {
+            border-radius: 0 0 10px 10px ;
+        }
+
+        &:hover {
+            background-color: #242424;
+        }
+    }
+
+    &info {
+        display: flex;
+        gap: 15px;
+
+        img {
+            width: 32px;
+            height: 48px;
+        }
+
+        .info__{
+            &description {
+                transition: .2s;
+
+                &:hover {
+                    color: #7B61FF;
+                }
+            }
+        }
+    }
+
+    &rating {
+        color: #0ab60a;
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 600;
+    }
+}
