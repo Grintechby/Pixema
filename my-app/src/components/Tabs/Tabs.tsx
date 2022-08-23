@@ -4,7 +4,7 @@ import { ITabs } from '../../types/ITabs';
 import './Tabs.scss';
 
 
-const Tabs = ({ firstTab, secondTab }: ITabs) => {
+const Tabs = ({ firstTab, secondTab, frstDisabled, scndDisabled, frstFunc, scndFunc, frstValue, scndValue, name }: ITabs) => {
   const [isSelect, setIsSelect] = useState(false)
 
   function handleClick() {
@@ -13,8 +13,23 @@ const Tabs = ({ firstTab, secondTab }: ITabs) => {
 
   return (
     <div className='tabs__container'>
-      <button onClick={handleClick} disabled={!isSelect} className='tabs__button left'>{firstTab}</button>
-      <button onClick={handleClick} disabled={isSelect} className='tabs__button right'>{secondTab}</button>
+      <button
+        onClick={frstFunc}
+        disabled={frstDisabled}
+        className='tabs__button left'
+        value={frstValue}
+        name={name}>
+        {firstTab}
+      </button>
+
+      <button
+        onClick={scndFunc}
+        disabled={scndDisabled}
+        className='tabs__button right'
+        value={scndValue}
+        name={name}>
+        {secondTab}
+      </button>
     </div>
   )
 }

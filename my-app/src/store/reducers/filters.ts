@@ -8,13 +8,13 @@ const initialState = {
         year: [1990, getCurrentYear()],
         rating: [1, 10],
         sortBy: '-1',
-        genres: [{ label: '', value: '' }],
+        genres: [],
     },
     defaultValues: {
         year: [1990, getCurrentYear()],
         rating: [1, 10],
         sortBy: '-1',
-        genres: [{ label: '', value: '' }],
+        genres: [],
     }
 };
 

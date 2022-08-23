@@ -8,6 +8,7 @@ import NewPass from './components/Authorization/NewPass/NewPass';
 import SignUp from './components/Authorization/Registration/SignUp';
 import ResetPass from './components/Authorization/ResetPass/ResetPass';
 import CardsList from './components/CardsList/CardsList';
+import FilterPage from './components/Filters/FilterPage/FilterPage';
 import HomePage from './components/HomePage/HomePage';
 import { SettingLink } from './components/Link/LinkButtons';
 import MainTemplate from './components/MainTemplate/MainTemplate';
@@ -34,6 +35,7 @@ function App() {
         <Route path='movie/'>
           <Route path=':id' element={<MoviePage />} />
         </Route>
+        <Route path='filter' element={<FilterPage />} />
       </Routes>
     </>
   );

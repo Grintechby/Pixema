@@ -4,9 +4,9 @@ import './ButtonPrimary.scss'
 
 
 
-const ButtonPrimary = ({ buttonName }: IButton) => {
+const ButtonPrimary = ({ children, onClick }: IButton) => {
   return (
-    <button className='prim-btn'>{buttonName}</button>
+    <button className='prim-btn' onClick={onClick}>{children}</button>
   )
 }
 
