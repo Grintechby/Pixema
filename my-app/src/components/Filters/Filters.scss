@@ -1,14 +1,4 @@
 .filters__ {
-    &background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        // min-height: 100vh;
-        z-index: 1;
-        background-color: rgba(0, 0, 0, 0.605);
-    }
 
     &container {
         position: absolute;
@@ -51,6 +41,10 @@
             padding: 32px 0 24px 0;
         }
 
+        .genres {
+            padding: 24px 0;
+        }
+
         .from-to__filter {
             padding-bottom: 24px;
 
@@ -65,7 +59,8 @@
             }
         }
         .show-clr__btns {
-            padding-top: 110px;
+            border-top: 1px solid #323537;
+            padding-top: 24px;
             display: flex;
             justify-content: space-between;
         }

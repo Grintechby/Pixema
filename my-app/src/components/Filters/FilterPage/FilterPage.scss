@@ -1,0 +1,12 @@
+.filter-page__ {
+    &container {
+        display: flex;
+        gap: 37px;
+        flex-wrap: wrap;
+        max-width: 1490px;
+    }
+
+    &loader {
+        margin: auto;
+    }
+}

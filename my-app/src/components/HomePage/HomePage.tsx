@@ -9,11 +9,13 @@ interface IType {
 }
 
 
-const HomePage = ({type}:IType) => {
+const HomePage = () => {
     return (
         <div>
             <MainTemplate>
-                <CardsList type={type} />
+                <CardsList type={1} />
+                <CardsList type={2} />
+                <CardsList type={3} />
             </MainTemplate>
         </div>
     )

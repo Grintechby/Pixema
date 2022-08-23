@@ -24,7 +24,6 @@ const MoviePage = () => {
         id,
         fees,
         genres,
-        budget,
         movieLength,
         countries,
         description,
@@ -44,7 +43,8 @@ const MoviePage = () => {
 
     return (
         <MainTemplate>
-            <div id={'movie_' + id} className='movie-page__container'>
+            {!isLoading && (
+                <div id={'movie_' + id} className='movie-page__container'>
                 <div className="movie-page__container_img-box">
                     <img src={poster?.url} alt="" />
                 </div>
@@ -74,7 +74,7 @@ const MoviePage = () => {
                             </tr>
                             <tr>
                                 <th>Сборы в мире</th>
-                                <td>{fees?.world.value && `${fees?.world.currency} ${convertNumbers(fees?.world.value)}`}</td>
+                                <td>{fees?.world && `${fees?.world.currency} ${convertNumbers(fees?.world.value)}`}</td>
                             </tr>
                             <tr>
                                 <th>Страны</th>
@@ -150,6 +150,7 @@ const MoviePage = () => {
                     </div>
                 </div>
             </div>
+            )}
         </MainTemplate>
     )
 }

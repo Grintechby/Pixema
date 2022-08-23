@@ -13,7 +13,6 @@ import HomePage from './components/HomePage/HomePage';
 import { SettingLink } from './components/Link/LinkButtons';
 import MainTemplate from './components/MainTemplate/MainTemplate';
 import MoviePage from './components/MoviePage/MoviePage';
-import SelectedMoviePage from './components/MoviePage/SelectedMoviePage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
 import Sidebar from './components/Sidebar/Sidebar';
 import { data } from './data/data';
@@ -26,7 +25,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/' element={<HomePage type={1} />} />
+        <Route path='/' element={<HomePage />} />
         <Route path='settings' element={<SettingsPage />} />
         <Route path='login' element={<SignIn />} />
         <Route path='registration' element={<SignUp />} />

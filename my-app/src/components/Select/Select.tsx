@@ -94,7 +94,7 @@ export const SelectComponent = ({ onChange, options, value }: ISelect) => {
       value={value}
       onChange={e => onChange(e)}
       styles={selectStyle}
-
+      noOptionsMessage={()=> 'Ничего не найдено'}
     />
   )
 

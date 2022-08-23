@@ -1,0 +1,41 @@
+.from-to__ {
+    &container {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        width: 100%;
+        line-height: 24px;
+
+        input {
+            height: 56px;
+            font-size: 16px;
+            background-color: #323537;
+            border-radius: 10px;
+            border: none;
+            color: #fff;
+            padding-left: 20px;
+
+            &:focus {
+                outline: 2px solid #7B61FF;
+            }
+
+            &:disabled {
+                background-color: #80858B;
+
+                &::placeholder {
+                    color: #AFB2B6;
+                }
+            }
+        }
+
+        label {
+            color: #fff;
+            padding-bottom: 8px;
+
+        }
+    }
+}
+
+.error {
+    outline: 2px solid #FF5154;
+}

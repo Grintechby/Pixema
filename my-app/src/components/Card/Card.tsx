@@ -11,10 +11,12 @@ const Card = ({ card }: ICard) => {
 
     return (
         <div style={{ backgroundColor: theme === 'light' ? '#f0f0f0' : 'black' }} id={'card_' + card.id} className="card__container">
-            <div className="card__container_img">
-                <div className="card__container_rating">{card.rating?.kp}</div>
-                <img src={card.poster?.url} alt="" />
-            </div>
+            <Link to={`/movie/${card.id}`}>
+                <div className="card__container_img">
+                    <div className="card__container_rating">{card.rating?.kp}</div>
+                    <img src={card.poster?.url} alt="" />
+                </div>
+            </Link>
             <div className="card__container_title">
                 <Link to={`/movie/${card.id}`}>{card.name}</Link>
             </div>

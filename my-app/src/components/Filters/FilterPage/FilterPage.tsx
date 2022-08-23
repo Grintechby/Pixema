@@ -10,21 +10,21 @@ import './FilterPage.scss';
 
 const FilterPage = () => {
 
-    const [limit, setLimit] = useState(10);
+    const [limit, setLimit] = useState(8);
     const { filters, defaultValues } = useTypedSelector((state) => state.filters);
     const { setFilterYear, setFilterGenres, setFilterRating } = filtersSlice.actions;
     const dispatch = useActions();
 
     const { data, isFetching, isLoading } = useGetMoviesByFiltersQuery({ filters, limit });
 
-    const [count, setCount] = useState(10);
+    const [count, setCount] = useState(8);
 
     const {year, rating, genres} = {...filters};
 
     return (
         <MainTemplate>
             {isLoading ? (
-                <div >
+                <div className='filter-page__loader' >
                     <Loader />
                 </div>
             ): (

@@ -1,23 +1,37 @@
 import React, { useRef, useState } from 'react';
 import { useOnClickOutside } from 'usehooks-ts';
+import { setVisibleFilter } from '../../store/reducers/filters';
 import { ITheme } from '../../types/ILinks';
 import Filters from '../Filters/Filters';
+import { useActions } from '../hooks/useActions';
 import { useDebounce } from '../hooks/useDebounce';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 import './Search.scss';
 import SearchList from './SearchComponents/SearchList/SearchList';
 
 const Search = ({theme}: ITheme) => {
-    const [openFilters, setOpenFilters] = useState(false);
-    const [visible, setVisible] = useState(false);
+
+    const {visible} = useTypedSelector((state) => state.filters);
+    const dispatch = useActions();
+    const [visibility, setVisibility] = useState(false);
     const [value, setValue] = useState<string>('')
     const {debouncedValue, setDebouncedValue} = useDebounce(value.trim(), 300);
-    const isActive = debouncedValue && value && visible;
-    const formRef = useRef<HTMLDivElement>(null)
+    const isActive = debouncedValue && value && visibility;
+    const searchRef = useRef<HTMLDivElement>(null)
 
-    useOnClickOutside(formRef, () => setVisible(false))
+    useOnClickOutside(searchRef, () => setVisibility(false))
+    
+
+    const openFilter = () => {
+        dispatch(setVisibleFilter(!visible));
+    }
+
+    const closeFilters = () => {
+        dispatch(setVisibleFilter(false));
+    }
 
     return (
-        <div ref={formRef} className='search__container'>
+        <div ref={searchRef} className='search__container'>
             <div className="search__input">
                 <input 
                     style={{ backgroundColor: theme === 'light' ? '#f0f0f0' : '#323537' }} 
@@ -27,19 +41,20 @@ const Search = ({theme}: ITheme) => {
                     placeholder='Search'
                     onChange={(e) => {
                         setValue(e.target.value);
-                        setVisible(true);
+                        setVisibility(true);
                     }}
-                    onClick={() => setVisible(true)}
+                    onClick={() => setVisibility(true)}
                     value={value} 
                 />
-                <button onClick={() => setOpenFilters(!openFilters)} className="filters__button"><img src="/icons/filter.svg" alt="" /></button>
+                <button onClick={openFilter} className="filters__button"><img src="/icons/filter.svg" alt="" /></button>
             </div>
-            <Filters isOpen={openFilters} closeFilters={() => setOpenFilters(!openFilters)} />
+            <Filters closeFilters={closeFilters} />
             {isActive && (
                 <SearchList 
                     closeClick={() => {
                         setValue('');
-                        setVisible(false);
+                        setVisibility(false);
+                        setDebouncedValue('');
                     }} 
                     value={debouncedValue} 
                 />
