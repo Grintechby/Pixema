@@ -1,7 +1,7 @@
 import React from 'react';
 import './NewPass.scss';
-import ButtonPrimary from '../../Buttons/ButtonPrimary/ButtonPrimary';
-import Input from '../../Input/Input';
+import ButtonPrimary from '../../UI/Buttons/ButtonPrimary/ButtonPrimary';
+import Input from '../../UI/Input/Input';
 import AuthTemplate from '../AuthTemplate/AuthTemplate';
 
 const NewPass = () => {

@@ -1,0 +1,80 @@
+@mixin img {
+    background-size: cover;
+    width: 24px;
+    height: 24px;
+    transition: .2s;
+}
+
+.link-btn__ {
+
+    &img_ {
+
+        &home {
+            background: url('../../../../public/icons/home.svg') center no-repeat;
+            @include img;
+        }
+
+        &trends {
+            background: url('../../../../public/icons/trends.svg') center no-repeat;
+            @include img;
+        }
+
+        &fav {
+            background: url('../../../../public/icons/favorites.svg') center no-repeat;
+            @include img;
+        }
+
+        &set {
+            background: url('../../../../public/icons/setting.svg') center no-repeat;
+            @include img;
+        }
+    }
+
+    &container {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        background-color: black;
+
+        a {
+            text-decoration: none;
+            color: #80858B;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 24px;
+            padding-left: 23px;
+            transition: .2s;
+
+
+        }
+
+        &:hover {
+            a {
+                color: #917CFF;
+            }
+
+            .link-btn__img_ {
+
+                &home {
+                    background: url('../../../../public/icons/home_hover.svg') center no-repeat;
+                    @include img;
+                }
+
+                &trends {
+                    background: url('../../../../public/icons/trends_hover.svg') center no-repeat;
+                    @include img;
+                }
+
+                &fav {
+                    background: url('../../../../public/icons/favorites_hover.svg') center no-repeat;
+                    @include img;
+                }
+
+                &set {
+                    background: url('../../../../public/icons/setting_hover.svg') center no-repeat;
+                    @include img;
+                }
+            }
+        }
+    }
+}

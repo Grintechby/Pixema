@@ -1,8 +1,8 @@
 import React from 'react';
 import { ICardList } from '../../types/ICardsList';
-import CardsList from '../CardsList/CardsList';
-import Header from '../Header/Header';
-import MainTemplate from '../MainTemplate/MainTemplate';
+import CardsList from '../UI/CardsList/CardsList';
+import Header from '../UI/Header/Header';
+import MainTemplate from '../UI/MainTemplate/MainTemplate';
 
 interface IType {
     type: number;

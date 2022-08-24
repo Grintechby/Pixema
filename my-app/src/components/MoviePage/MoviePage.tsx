@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../Card/Card';
-import MainTemplate from '../MainTemplate/MainTemplate';
+import Card from '../UI/Card/Card';
+import MainTemplate from '../UI/MainTemplate/MainTemplate';
 import './MoviePage.scss';
 import { IMoviePage } from '../../types/IMoviePage';
 import { ISelectedCard } from '../../types/ISelectedCard';

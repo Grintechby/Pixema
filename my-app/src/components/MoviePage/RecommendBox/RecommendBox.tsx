@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './RecommendBox.scss';
 import { ICard } from '../../../types/ICard';
 import { ICardList } from '../../../types/ICardsList';
-import Card from '../../Card/Card';
+import Card from '../../UI/Card/Card';
 import { useGetNewMoviesQuery } from '../../../api/api';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { Link } from 'react-router-dom';
