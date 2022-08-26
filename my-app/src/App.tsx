@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import { useGetMovieByIdQuery } from './api/api';
 import './App.css';
@@ -15,12 +15,16 @@ import MainTemplate from './components/UI/MainTemplate/MainTemplate';
 import MoviePage from './components/MoviePage/MoviePage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
 import Sidebar from './components/UI/Sidebar/Sidebar';
+import ConfirmRegistartion from './components/Authorization/ConfirmRegistartion/ConfirmRegistartion';
+import { useGetUserInfoMutation, useRefreshTokenMutation } from './api/auth';
+import { useActions } from './components/hooks/useActions';
+import { authSlice } from './store/reducers/auth';
 
 
 
 
 function App() {
-  const params = useParams();
+
   return (
     <>
       <Routes>
@@ -28,6 +32,7 @@ function App() {
         <Route path='settings' element={<SettingsPage />} />
         <Route path='login' element={<SignIn />} />
         <Route path='registration' element={<SignUp />} />
+        <Route path='confirm_registration' element={<ConfirmRegistartion/>} />
         <Route path='reset-pass' element={<ResetPass />} />
         <Route path='new-pass' element={<NewPass />} />
         <Route path='movie/'>

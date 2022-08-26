@@ -6,6 +6,8 @@ import { useMemo } from "react";
 import { pixemaApi } from "../api/api";
 import { filtersReducer } from "./reducers/filters";
 import { loadReducer } from "./reducers/load";
+import { authReducer } from "./reducers/auth";
+import { pixemaAuth } from "../api/auth";
 
 // export const store = createStore(rootReducer)
 
@@ -17,11 +19,13 @@ export const configStore = (preloadedState = {}) => {
             theme: themeReducer,
             filters: filtersReducer,
             load: loadReducer,
+            auth: authReducer,
             [pixemaApi.reducerPath]: pixemaApi.reducer,
+            [pixemaAuth.reducerPath]: pixemaAuth.reducer
         },
         preloadedState,
         middleware: (getDefaultMiddleware) => 
-            getDefaultMiddleware().concat(pixemaApi.middleware)
+            getDefaultMiddleware().concat(pixemaApi.middleware).concat(pixemaAuth.middleware)
     }); 
 };
 
