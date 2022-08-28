@@ -1,6 +1,8 @@
+import classNames from 'classnames';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { IMovie } from '../../../../../types/IMovie';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import './SearchItem.scss';
 
 
@@ -9,9 +11,10 @@ interface ISearchItem {
 }
 
 const SearchItem = ({ item }: ISearchItem) => {
+    const {theme} = useTypedSelector(state => state.theme);
     const { name, id, poster, year, alternativeName, rating } = item;
     return (
-        <Link to={`/movie/${id}`} className='search-item__container'>
+        <Link to={`/movie/${id}`} className={classNames(theme === 'light' ? 'search-item__container search-light': 'search-item__container')}>
             <div className='search-item__info'>
                 <img src={poster?.url} alt="" />
                 <div className="info__description">

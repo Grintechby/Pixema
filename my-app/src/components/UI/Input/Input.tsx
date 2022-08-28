@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 import './Input.scss';
 
 interface inputProps {
@@ -11,9 +12,12 @@ interface inputProps {
 }
 
 const Input = ({ placeholder, value, onChange, name, autoComplete, type }: inputProps) => {
+
+    const {theme} = useTypedSelector(state => state.theme);
     return (
         <div className='input__container'>
             <input 
+                style={theme === 'light' ? {backgroundColor: '#fff', color: '#80858B'} : {}}
                 name= {name}
                 type={type}  
                 placeholder={placeholder} 

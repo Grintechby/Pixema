@@ -16,14 +16,42 @@ import MoviePage from './components/MoviePage/MoviePage';
 import SettingsPage from './components/SettingsPage/SettingsPage';
 import Sidebar from './components/UI/Sidebar/Sidebar';
 import ConfirmRegistartion from './components/Authorization/ConfirmRegistartion/ConfirmRegistartion';
-import { useGetUserInfoMutation, useRefreshTokenMutation } from './api/auth';
+import { getUserInfo, useGetUserInfoMutation, useRefreshTokenMutation } from './api/auth';
 import { useActions } from './components/hooks/useActions';
 import { authSlice } from './store/reducers/auth';
+import { getCookie } from './components/helpers/getCookie';
 
 
 
 
 function App() {
+
+  const dispatch = useActions();
+  const { setUser } = authSlice.actions;
+
+  const accessCookie = getCookie("access");
+  const refreshCookie = getCookie("refresh");
+  const [getUserInfo, { data, error }] = useGetUserInfoMutation();
+  const [refreshToken, { data: refresh }] = useRefreshTokenMutation();
+
+  useMemo(() => {
+    accessCookie && getUserInfo(`${accessCookie}`).unwrap();
+    if (error && refreshCookie) {
+      refreshToken(`${refreshCookie}`).unwrap();
+      document.cookie = `access=${refresh?.access}`;
+    }
+  }, [
+    getUserInfo,
+    refreshToken,
+    refresh?.access,
+    accessCookie,
+    refreshCookie,
+    error,
+  ]);
+
+  useEffect(() => {
+    data && dispatch(setUser(data));
+  }, [data, dispatch, setUser]);
 
   return (
     <>
@@ -32,7 +60,7 @@ function App() {
         <Route path='settings' element={<SettingsPage />} />
         <Route path='login' element={<SignIn />} />
         <Route path='registration' element={<SignUp />} />
-        <Route path='confirm_registration' element={<ConfirmRegistartion/>} />
+        <Route path='confirm_registration' element={<ConfirmRegistartion />} />
         <Route path='reset-pass' element={<ResetPass />} />
         <Route path='new-pass' element={<NewPass />} />
         <Route path='movie/'>

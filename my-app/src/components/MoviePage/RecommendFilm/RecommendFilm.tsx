@@ -2,6 +2,8 @@ import React from 'react';
 import './RecommendFilm.scss';
 import { Link } from 'react-router-dom';
 import { IMovie } from '../../../types/IMovie';
+import cn from 'classnames';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 interface IRecommendFilm {
     item: IMovie;
@@ -9,6 +11,7 @@ interface IRecommendFilm {
 }
 
 const RecommendFilm = ({ item, rating }: IRecommendFilm) => {
+    const {theme} = useTypedSelector(state => state.theme);
     const {id, poster, name} = {...item}
     return (
         <div className='recommend-film__container'>
@@ -18,7 +21,7 @@ const RecommendFilm = ({ item, rating }: IRecommendFilm) => {
             </div>
             
             <div className="recommend-film__container_title">
-                <Link to={`/movie/${id}`}>{name}</Link>
+                <Link className={cn(theme === 'light' ? 'title_light': 'title_dark')} to={`/movie/${id}`}>{name}</Link>
             </div>
         </div>
     )

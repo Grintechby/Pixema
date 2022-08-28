@@ -12,6 +12,7 @@ const FilterPage = () => {
 
     const [limit, setLimit] = useState(8);
     const { filters, defaultValues } = useTypedSelector((state) => state.filters);
+    const {theme} = useTypedSelector(state => state.theme);
     const { setFilterYear, setFilterGenres, setFilterRating } = filtersSlice.actions;
     const dispatch = useActions();
 
@@ -19,7 +20,7 @@ const FilterPage = () => {
 
     const [count, setCount] = useState(8);
 
-    const {year, rating, genres} = {...filters};
+    const { year, rating, genres } = { ...filters };
 
     return (
         <MainTemplate>
@@ -27,12 +28,15 @@ const FilterPage = () => {
                 <div className='filter-page__loader' >
                     <Loader />
                 </div>
-            ): (
-                <div className="filter-page__container">
-                    {data?.docs.map((movie) => (
-                        <Card key={movie.id} card={movie} />
-                    ))}
-                </div>
+            ) : (
+                <>
+                    <h1 style={theme === 'light'? {}: {color: '#fff'}}>Результаты поиска</h1>
+                    <div className="filter-page__container">
+                        {data?.docs.map((movie) => (
+                            <Card key={movie.id} card={movie} />
+                        ))}
+                    </div>
+                </>
             )
             }
         </MainTemplate>

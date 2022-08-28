@@ -47,3 +47,12 @@
         font-weight: 600;
     }
 }
+
+.search-light {
+    background-color: #f0f0f0;
+    color: #000;
+    &:hover {
+        background-color: #80858B;
+        color: #fff;
+    }
+}

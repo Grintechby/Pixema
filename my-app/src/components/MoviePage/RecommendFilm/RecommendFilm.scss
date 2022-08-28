@@ -12,9 +12,21 @@
         &_title {
             padding-top: 24px;
 
-            a {
+            .title_dark {
                 cursor: pointer;
                 color: #fff;
+                font-weight: 700;
+                text-decoration: none;
+                transition: .2s;
+
+                &:hover {
+                    color: #7B61FF;
+                }
+            }
+
+            .title_light {
+                cursor: pointer;
+                color: #000;
                 font-weight: 700;
                 text-decoration: none;
                 transition: .2s;

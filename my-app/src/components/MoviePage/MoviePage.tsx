@@ -11,9 +11,13 @@ import { useParams } from 'react-router-dom';
 import { IMovieGenre } from '../../types/IMovie';
 import { convertTimeStampToDate } from '../helpers/convertTimeStampToDate';
 import { convertNumbers } from '../helpers/convertNumbers';
+import { useTypedSelector } from '../hooks/useTypedSelector';
+import cn from 'classnames';
 
 
 const MoviePage = () => {
+
+    const {theme} = useTypedSelector(state => state.theme);
 
     const params = useParams();
     const { data, isLoading } = useGetMovieByIdQuery(params.id);
@@ -52,7 +56,7 @@ const MoviePage = () => {
                         <ul className="content-box__genres">
                             {genres?.map((genre: IMovieGenre) => <li key={'key_' + genre.name}>{genre.name}</li>)}
                         </ul>
-                        <h1 className="content-box__title">{name}</h1>
+                        <h1 className={cn(theme === 'light'? 'content-box__title light': 'content-box__title')}>{name}</h1>
                         <div className="content-box__ratings">
                             <div className="rating_pixema">{rating?.kp}</div>
                             <div className="rating_imdb">
@@ -61,9 +65,9 @@ const MoviePage = () => {
                             </div>
                             <div className="movie-duration">{movieLength} min</div>
                         </div>
-                        <div className="content-box__description">{description}</div>
+                        <div className={cn(theme === 'light'? 'content-box__description light': 'content-box__description')}>{description}</div>
                         <div className="content-box__main-info">
-                            <table>
+                            <table className={cn(theme === 'light'? 'light': '')}>
                                 <tbody>
                                     <tr>
                                         <th>Год</th>
@@ -148,7 +152,7 @@ const MoviePage = () => {
                             </table>
                         </div>
                         <div className="content-box__recommend">
-                            <h2>Рекомендуем посмотреть :</h2>
+                            <h2 className={cn(theme === 'light'? 'light': '')}>Рекомендуем посмотреть :</h2>
                             <RecommendBox movies={similarMovies} rating={rating?.kp} />
                         </div>
                     </div>

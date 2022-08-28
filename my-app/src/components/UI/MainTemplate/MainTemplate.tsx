@@ -16,9 +16,9 @@ const MainTemplate = ({ children }: IMainTemplate) => {
   const theme = useTypedSelector(store => store.theme.theme)
 
   return (
-    <div style={{ backgroundColor: theme === 'light' ? '#f0f0f0' : 'black' }} className='template__container'>
+    <div style={{ backgroundColor: theme === 'light' ? '#fff' : 'black' }} className='template__container'>
       <div className="template__aside">
-        <div className="sidebar__logo"><Link to='/'><img src="/images/logo-dark.png" alt="" /></Link></div>
+        <div className="sidebar__logo"><Link to='/'><img src={theme === 'light' ? "/images/logo-light.png" : "/images/logo-dark.png"} alt="" /></Link></div>
         <Sidebar />
       </div>
       <div className="template__main">

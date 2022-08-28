@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ICard } from '../../../types/ICard';
@@ -7,10 +8,10 @@ import './Card.scss';
 
 
 const Card = ({ card }: ICard) => {
-    const theme = useTypedSelector(store => store.theme.theme)
+    const {theme} = useTypedSelector(state => state.theme)
 
     return (
-        <div style={{ backgroundColor: theme === 'light' ? '#f0f0f0' : 'black' }} id={'card_' + card.id} className="card__container">
+        <div style={{ backgroundColor: theme === 'light' ? '#fff' : 'black' }} id={'card_' + card.id} className="card__container">
             <Link to={`/movie/${card.id}`}>
                 <div className="card__container_img">
                     <div className="card__container_rating">{card.rating?.kp}</div>
@@ -18,7 +19,7 @@ const Card = ({ card }: ICard) => {
                 </div>
             </Link>
             <div className="card__container_title">
-                <Link to={`/movie/${card.id}`}>{card.name}</Link>
+                <Link className={cn(theme === 'light' ? 'title_light': 'title_dark')} to={`/movie/${card.id}`}>{card.name}</Link>
             </div>
             <ul className="card__container_description">
                 {

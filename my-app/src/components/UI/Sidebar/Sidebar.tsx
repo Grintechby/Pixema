@@ -10,7 +10,6 @@ const Sidebar = () => {
   return (
     <div className='sidebar__container'>
       <HomeLink theme={theme} />
-      <TrendsLink theme={theme} />
       <FavoritesLink theme={theme} />
       <SettingLink theme={theme} />
     </div>

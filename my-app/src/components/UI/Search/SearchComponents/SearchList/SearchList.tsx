@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useGetMoviesBySearchQuery } from '../../../../../api/api';
 import { IMovie } from '../../../../../types/IMovie';
+import { useTypedSelector } from '../../../../hooks/useTypedSelector';
 import Loader from '../../../Loader/Loader';
 import SearchItem from '../SearchItem/SearchItem';
 import './SearchList.scss';
@@ -13,11 +14,13 @@ interface SearchListProps {
 
 const SearchList = ({ value, closeClick }: SearchListProps) => {
 
+    
+
     const [type, setType] = useState(1);
     const { data, isFetching } = useGetMoviesBySearchQuery({
         query: value,
         type,
-        limit: 10,
+        limit: 5,
     })
 
     return (

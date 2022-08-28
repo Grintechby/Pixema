@@ -34,11 +34,11 @@ const Search = ({theme}: ITheme) => {
         <div ref={searchRef} className='search__container'>
             <div className="search__input">
                 <input 
-                    style={{ backgroundColor: theme === 'light' ? '#f0f0f0' : '#323537' }} 
+                    style={theme === 'light' ? { backgroundColor: '#fff', border: '2px solid #AFB2B6', color: '#80858B' }: {}} 
                     type="search" 
                     name="Search" 
                     id="" 
-                    placeholder='Search'
+                    placeholder='Поиск..'
                     onChange={(e) => {
                         setValue(e.target.value);
                         setVisibility(true);
