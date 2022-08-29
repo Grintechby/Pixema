@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import ButtonPrimary from '../Buttons/ButtonPrimary/ButtonPrimary';
 import ButtonSecondary from '../Buttons/ButtonSecondary/ButtonSecondary';
 import Tabs from '../Tabs/Tabs';
@@ -13,6 +13,7 @@ import { useOnClickOutside } from 'usehooks-ts';
 import { Link } from 'react-router-dom';
 import SelectComponent from '../Select/Select';
 import FromToInput from '../Input/FromToInput/FromToInput';
+import { genres } from '../../../constants/genres';
 
 
 interface IFilters {
@@ -20,33 +21,6 @@ interface IFilters {
 }
 
 const Filters = ({ closeFilters }: IFilters) => {
-
-    const genres = [
-        { label: "Семейные", value: "семейный" },
-        { label: "Биографии", value: "биография" },
-        { label: "Боевики", value: "боевик" },
-        { label: "Вестерны", value: "вестерн" },
-        { label: "Военные", value: "военный" },
-        { label: "Детективы", value: "детектив" },
-        { label: "Детские", value: "детский" },
-        { label: "Документальные", value: "документальный" },
-        { label: "Драмы", value: "драма" },
-        { label: "Исторические", value: "история" },
-        { label: "Комедии", value: "комедия" },
-        { label: "Короткометражки", value: "короткометражка" },
-        { label: "Криминал", value: "криминал" },
-        { label: "Мелодрамы", value: "мелодрама" },
-        { label: "Музыкальные", value: "музыка" },
-        { label: "Мюзиклы", value: "мюзикл" },
-        { label: "Новости", value: "новости" },
-        { label: "Приключения", value: "приключения" },
-        { label: "Спортивные", value: "спорт" },
-        { label: "Триллеры", value: "триллер" },
-        { label: "Ужасы", value: "ужасы" },
-        { label: "Фантастика", value: "фантастика" },
-        { label: "Фильмы-нуар", value: "фильм-нуар" },
-        { label: "Фэнтези", value: "фэнтези" },
-    ];
 
     const dispatch = useActions();
     const { visible, filters, defaultValues } = useTypedSelector((state) => state.filters);

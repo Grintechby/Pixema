@@ -7,17 +7,18 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useActions } from '../../hooks/useActions';
 import { authSlice } from '../../../store/reducers/auth';
 import { useGetUserInfoMutation, useRefreshTokenMutation } from '../../../api/auth';
+import { getCookie } from '../../helpers/getCookie';
 
 const AboutUser = ({ theme }: ITheme) => {
 
     const [openMenu, setOpenMenu] = useState(false);
     const { currentUser, isAuth } = useTypedSelector(state => state.auth)
-    // const [getUserInfo, { data, error }] = useGetUserInfoMutation();
-    // const [refreshToken, { data: refresh }] = useRefreshTokenMutation();
+    const [getUserInfo, { data, error }] = useGetUserInfoMutation();
+    const [refreshToken, { data: refresh }] = useRefreshTokenMutation();
     const dispatch = useActions();
     const { logout, setUser } = authSlice.actions;
-    // const accessCookie = getCookie("access");
-    // const refreshCookie = getCookie("refresh");
+    const accessCookie = getCookie("access");
+    const refreshCookie = getCookie("refresh");
 
     const handleLogOut = () => {
         dispatch(logout());
@@ -25,24 +26,24 @@ const AboutUser = ({ theme }: ITheme) => {
         document.cookie = "refresh=;";
     }
 
-    // useMemo(() => {
-    //     accessCookie && getUserInfo(`${accessCookie}`).unwrap();
-    //     if (error && refreshCookie) {
-    //         refreshToken(`${refreshCookie}`).unwrap();
-    //         document.cookie = `access=${refresh?.access}`;
-    //     }
-    // }, [
-    //     getUserInfo,
-    //     refreshToken,
-    //     refresh?.access,
-    //     accessCookie,
-    //     refreshCookie,
-    //     error,
-    // ]);
+    useMemo(() => {
+        accessCookie && getUserInfo(`${accessCookie}`).unwrap();
+        if (error && refreshCookie) {
+            refreshToken(`${refreshCookie}`).unwrap();
+            document.cookie = `access=${refresh?.access}`;
+        }
+    }, [
+        getUserInfo,
+        refreshToken,
+        refresh?.access,
+        accessCookie,
+        refreshCookie,
+        error,
+    ]);
 
-    // useEffect(() => {
-    //     data && dispatch(setUser(data));
-    // }, [data, dispatch, setUser]);
+    useEffect(() => {
+        data && dispatch(setUser(data));
+    }, [data, dispatch, setUser]);
 
 
 

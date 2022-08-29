@@ -1,8 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/dist/query/react";
+import { AUTH_URL } from "../constants/authApi";
 import { IActivate, IAuth, ICreateToken, IPatchUserName, IResetPassword, ISetEmail, ISignUp, IToken } from "../types/IQuery";
 
-
-export const AUTH_URL = 'https://studapi.teachmeskills.by/auth';
 
 export const pixemaAuth = createApi({
     reducerPath: 'pixemaAuth',

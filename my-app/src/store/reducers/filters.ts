@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getCurrentYear } from "../../api/api";
+import { getCurrentYear } from "../../components/helpers/getYear";
+
 
 const initialState = {
     visible: false,

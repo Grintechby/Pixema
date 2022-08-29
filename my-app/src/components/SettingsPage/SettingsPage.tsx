@@ -11,7 +11,7 @@ import { setTheme } from '../../store/reducers/theme';
 import { authSlice } from '../../store/reducers/auth';
 import { usePatchPasswordMutation, usePatchUserNameMutation } from '../../api/auth';
 import { getCookie } from '../helpers/getCookie';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import cn from 'classnames';
 
 const SettingsPage = () => {
@@ -23,6 +23,7 @@ const SettingsPage = () => {
     const [patchUserName] = usePatchUserNameMutation();
 
     const { currentUser, isAuth } = useTypedSelector(state => state.auth);
+    const accessCookie = getCookie('access');
     const { theme } = useTypedSelector(state => state.theme)
     const dispatch = useActions();
 
@@ -56,23 +57,22 @@ const SettingsPage = () => {
         setConfirmPass(confirmPass)
     };
 
-    const accessCookie = getCookie('access');
-
     const handleSave = () => {
         dispatch(
             setUser({
                 username: name,
-                id: currentUser.id,
-                email: currentUser.email
+                id: currentUser?.id,
+                email: currentUser?.email
             })
         );
         name !== currentUser.username &&
             patchUserName({
                 username: name,
-                id: currentUser.id,
+                id: currentUser?.id,
                 token: accessCookie
             })
-                .unwrap();
+                .unwrap()
+                .then((username) => console.log("username", username));
         oldPass &&
             confirmPass &&
             password &&
@@ -81,7 +81,8 @@ const SettingsPage = () => {
                 new_password: password,
                 old_password: oldPass
             })
-                .unwrap();
+                .unwrap()
+                .then((newPassword) => console.log("newPassword", newPassword));
     };
 
     const handleCancel = () => {
@@ -90,7 +91,7 @@ const SettingsPage = () => {
 
     return (
         <MainTemplate>
-            <div style={theme === 'light' ? {color: '#000'}: {}} className="settings">
+            <div style={theme === 'light' ? { color: '#000' } : {}} className="settings">
                 {isAuth &&
                     <>
                         <div className='profile__container'>
@@ -168,7 +169,7 @@ const SettingsPage = () => {
                         <div className="color-mode__box_current-theme">
                             <h4>
                                 {
-                                    theme === 'light' ? 
+                                    theme === 'light' ?
                                         'Светлая тема' :
                                         'Темная тема'
                                 }
@@ -184,11 +185,12 @@ const SettingsPage = () => {
                         <Switch theme={theme} changeTheme={changeTheme} />
                     </div>
                 </div>
-
-                <div className="settings__bttns">
-                    <ButtonSecondary onClick={handleCancel}>Закрыть</ButtonSecondary>
-                    <ButtonPrimary onClick={handleSave}>Сохранить</ButtonPrimary>
-                </div>
+                {isAuth && (
+                    <div className="settings__bttns">
+                        <ButtonSecondary onClick={handleCancel}>Закрыть</ButtonSecondary>
+                        <ButtonPrimary onClick={handleSave}>Сохранить</ButtonPrimary>
+                    </div>
+                )}
 
             </div>
 

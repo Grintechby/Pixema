@@ -7,12 +7,13 @@ import { useTypedSelector } from '../../../hooks/useTypedSelector';
 import Loader from '../../Loader/Loader';
 import MainTemplate from '../../MainTemplate/MainTemplate';
 import './FilterPage.scss';
+import ButtonPrimary from '../../Buttons/ButtonPrimary/ButtonPrimary';
 
 const FilterPage = () => {
 
     const [limit, setLimit] = useState(8);
     const { filters, defaultValues } = useTypedSelector((state) => state.filters);
-    const {theme} = useTypedSelector(state => state.theme);
+    const { theme } = useTypedSelector(state => state.theme);
     const { setFilterYear, setFilterGenres, setFilterRating } = filtersSlice.actions;
     const dispatch = useActions();
 
@@ -30,11 +31,14 @@ const FilterPage = () => {
                 </div>
             ) : (
                 <>
-                    <h1 style={theme === 'light'? {}: {color: '#fff'}}>Результаты поиска</h1>
+                    <h1 style={theme === 'light' ? {} : { color: '#fff' }}>Результаты поиска</h1>
                     <div className="filter-page__container">
                         {data?.docs.map((movie) => (
                             <Card key={movie.id} card={movie} />
                         ))}
+                    </div>
+                    <div className="more-btn">
+                        <ButtonPrimary onClick={() => setLimit(limit + count)}>{isFetching ? 'Загрузка..' : 'Показать еще'}</ButtonPrimary>
                     </div>
                 </>
             )

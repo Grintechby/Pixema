@@ -2,7 +2,7 @@ import cn from 'classnames';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ICard } from '../../../types/ICard';
-import { IMovie, IMovieGenre } from '../../../types/IMovie';
+import { IMovieGenre } from '../../../types/IMovie';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import './Card.scss';
 
@@ -24,10 +24,9 @@ const Card = ({ card }: ICard) => {
             <ul className="card__container_description">
                 {
                     card.genres?.map((genre: IMovieGenre, index) => {
-                        if (index < 3) {
+                        if (index < 2) {
                             return <li key={'key_' + genre.name}>{genre.name}</li>
                         }
-
                     })
                 }
             </ul>

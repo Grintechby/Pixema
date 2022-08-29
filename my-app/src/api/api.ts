@@ -1,16 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { getCurrentYear } from '../components/helpers/getYear';
+import { API_KEY, API_URL } from '../constants/movieApi';
 import { IData, IDataPerson } from '../types/IData';
 import { IMovie } from '../types/IMovie';
 import { IPerson } from '../types/IPerson';
 import { IBaseQuery, IQuery } from '../types/IQuery';
 
-
-export const API_URL = 'https://api.kinopoisk.dev';
-export const API_KEY = 'TWMMKZR-BBT4R5M-HTB241W-JVTFTCM';
-
-export function getCurrentYear() {
-    return new Date().getFullYear()
-}
 
 export const pixemaApi = createApi({
     reducerPath: 'pixemaApi',

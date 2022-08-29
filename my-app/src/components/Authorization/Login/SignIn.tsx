@@ -29,8 +29,8 @@ const SignIn = () => {
     }
 
     useEffect(() => {
-        document.cookie = `access=${data ? data.access : ''}`;
-        document.cookie = `refresh=${data ? data.refresh : ''}`
+        document.cookie = `access=${data ? data?.access : ''}`;
+        document.cookie = `refresh=${data ? data?.refresh : ''}`
     }, [data]);
 
     return (

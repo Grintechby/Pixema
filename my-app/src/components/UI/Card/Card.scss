@@ -59,7 +59,7 @@
 
         &_description {
             display: flex;
-            // gap: 25px;
+            gap: 25px;
             color: #AFB2B6;
             flex-wrap: wrap;
             
@@ -69,8 +69,6 @@
                     list-style-type: none;
                     margin-left: 0;
                 }
-                margin-left: 25px;
-                
             }
         }
     }
